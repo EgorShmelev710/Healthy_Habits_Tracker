@@ -16,7 +16,7 @@ class Habit(models.Model):
     place = models.CharField(max_length=200, verbose_name='место привычки')
     time = models.DateTimeField(verbose_name='время привычки')
     action = models.CharField(max_length=200, verbose_name='действие')
-    is_pleasant = models.BooleanField(verbose_name='приятная', **NULLABLE)
+    is_pleasant = models.BooleanField(verbose_name='приятная')
     related_habit = models.ForeignKey('self', on_delete=models.SET_NULL, **NULLABLE)
     frequency_number = models.PositiveIntegerField()
     frequency_unit = models.CharField(max_length=10, choices=FREQUENCY_UNITS, default='days')
