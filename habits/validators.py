@@ -32,7 +32,8 @@ class DurationTimeValidator:
 
     def __call__(self, value):
         tmp_val = dict(value).get(self.field)
-        if tmp_val > timedelta(seconds=120):
+        print(tmp_val)
+        if tmp_val is not None and tmp_val > timedelta(seconds=120):
             raise ValidationError('The duration of the habit should be no more than 120 seconds (2 minutes)')
 
 

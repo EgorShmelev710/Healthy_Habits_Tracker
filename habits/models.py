@@ -1,3 +1,4 @@
+from django.conf import settings
 from django.db import models
 
 from users.models import User
@@ -12,7 +13,8 @@ class Habit(models.Model):
         ("days", "дни"),
     ]
 
-    user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='создатель привычки')
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, verbose_name='создатель привычки',
+                             **NULLABLE)
     place = models.CharField(max_length=200, verbose_name='место привычки')
     time = models.DateTimeField(verbose_name='время привычки')
     action = models.CharField(max_length=200, verbose_name='действие')
