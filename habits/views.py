@@ -13,7 +13,7 @@ class HabitViewSet(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated, IsOwner]
 
     def get_queryset(self):
-        return Habit.objects.filter(user=self.request.user)
+        return Habit.objects.filter(user=self.request.user).order_by('id')
 
     def perform_create(self, serializer):
         new_habit = serializer.save()

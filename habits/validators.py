@@ -59,12 +59,13 @@ class RegularityValidator:
         num = dict(value).get(self.field1)
         unit = dict(value).get(self.field2)
 
-        if unit == 'minutes':
-            frequency_in_days = num / (60 * 24)
-        elif unit == 'hours':
-            frequency_in_days = num / 24
-        elif unit == 'days':
-            frequency_in_days = num
+        if num:
+            if unit == 'minutes':
+                frequency_in_days = num / (60 * 24)
+            elif unit == 'hours':
+                frequency_in_days = num / 24
+            elif unit == 'days':
+                frequency_in_days = num
 
         if frequency_in_days > 7:
             raise ValidationError('You can not perform the habit less than once every 7 days')
