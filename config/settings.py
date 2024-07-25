@@ -150,12 +150,13 @@ SIMPLE_JWT = {
 }
 
 CORS_ALLOWED_ORIGINS = [
-    "https://read-only.example.com",
-    "https://read-and-write.example.com",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
 ]
 
 CSRF_TRUSTED_ORIGINS = [
-    "https://read-and-write.example.com",
+    "http://127.0.0.1:8000",
+    "http://localhost:8000",
 ]
 
 CELERY_BROKER_URL = 'redis://localhost:6379'
